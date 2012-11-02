@@ -49,18 +49,17 @@
 	// change tab
 	$(".tab-title li").bind("click", function(e) {
 		e.preventDefault();
-		var parentTitle = $(this).parents(".tab-title");
-		var contents = parentTitle.next().children();
-		var dataTab = $(this).children("a").data("tab");
+		var $this = $(this),
+				parentTitle = $this.parents(".tab-title"),
+				contents = parentTitle.next(),
+				dataTab = $this.children("a").data("tab");
 
 		parentTitle.children("li").removeClass("active");
-		$(this).addClass("active");
+		$this.addClass("active");
 
-		contents.each(function() {
+		contents.children(".active").fadeOut("fast", function() {
 			$(this).removeClass("active");
-			if($(this).data('pane') == dataTab) {
-				$(this).addClass("active");
-			}
+			contents.children("[data-pane = " + dataTab + "]").addClass("active").fadeIn(200);
 		});
 	});
 
@@ -129,7 +128,7 @@
 		e.preventDefault();
 		var $this = $(this);
 		var parent = $this.parents("div");
-		if (parent.hasClass("radio")) {
+		if(parent.hasClass("radio")) {
 			parent.children("a, button").each(function() {
 				$(this).removeClass("active");
 			})
