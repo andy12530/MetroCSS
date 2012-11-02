@@ -1137,7 +1137,7 @@ a.active {
 
 
 [class *= icon-] {
-  background-image: url("images/icons-white.png");
+  background-image: url("../images/icons-white.png");
   background-repeat: no-repeat;
   position: relative;
   vertical-align: top;
@@ -1148,7 +1148,7 @@ a.active {
 }
 
 [class *= icon-].white {
-  background-image: url("images/icons.png");
+  background-image: url("../images/icons.png");
 }
 
 [class *= icon-].right {
