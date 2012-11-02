@@ -1,74 +1,624 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <meta charset='utf-8' />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="description" content="Metrocss : 一个简单的前端框架" />
+  <title>Metro-CSS</title>
+  <link rel="stylesheet" href="stylesheets/metrocss.css">
+  <script type="text/javascript" src="javascripts/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" src="javascripts/metrocss.js"></script>
+<script type="text/javascript">
+$(function() {
+  $(".alert").bind("closed", function(e) {
+    console.log("关闭后触发这些函数");
+  });
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Metrocss : 一个简单的前端框架" />
+  $(".tab-title li").bind("shown", function() {
+    alert("已经切换完成");
+  });
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+  $("#btn").bind("click", function(){
+    $(this).popover("toggle");
+  }) ;
 
-    <title>Metrocss</title>
-  </head>
+  $("#textGit").bind("focus", function() {
+    $("#github").popover({placement: "left"}).popover("show");
+  }).bind("blur", function() {
+    $("#github").popover({placement: "left"}).popover("hide");
+  })
 
-  <body>
+  $("#twitter").bind("focus", function() {
+    $(this).popover({placement: "left"}).popover("show");
+  }).bind("blur", function() {
+    $(this).popover({placement: "left"}).popover("hide");
+  })
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/andy12530/MetroCSS">View on GitHub</a>
+})
+</script>
+<title>测试页面</title>
+</head>
+<body>
+  <div class="navbar">
+    <h1 class="logo"><a href="http://github.com/andy12530">Metro CSS</a></h1>
+    <ul class="nav">
+      <li class="nav-item"><a href="#">导航页1</a></li>
+      <li class="nav-item"><a href="#">导航页2</a></li>
+      <li class="nav-item">
+        <a href="#">导航页3</a>
+        <ul class="nav-sub">
+          <li><a href="#">次级导航1</a></li>
+          <li><a href="#">次级导航2</a></li>
+          <li><a href="#">次级导航3</a></li>
+          <li><a href="#">次级导航4</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="#">导航页4</a></li>
+      <li class="nav-item"><a href="#">导航页5</a></li>
+    </ul>
+  </div>
 
-          <h1 id="project_title">Metrocss</h1>
-          <h2 id="project_tagline">一个简单的前端框架</h2>
+  <div class="container">
+    <div class="grid">
+      <div class="span8">
+        <h3>分页</h3>
+        <div class="pagenav">
+          <a href="#" class="btn btn-small">
+            <span class="icon-media-fast-backward white"></span>
+            首页
+          </a>
+          <a href="#" class="btn btn-small">
+            <span class="icon-previous white"></span>
+            上一页
+          </a>
+          <a href="#" class="btn btn-small">1</a>
+          <a href="#" class="btn btn-small active">2</a>
+          <a href="#" class="btn btn-small">3</a>
+          <a href="#" class="btn btn-small">4</a>
+          <a href="#" class="btn btn-small">5</a>
+          <a href="#" class="btn btn-small">
+            下一页
+            <span class="icon-next white right"></span>
+          </a>
+          <a href="#" class="btn btn-small">
+            最后一页
+            <span class="icon-media-fast-forward white right"></span>
+          </a>
+        </div>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/andy12530/MetroCSS/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/andy12530/MetroCSS/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+        <h3>Metro砖块</h3>
+        <div class="clearfix">
+          <div class="tile bg-darken">
+            <div class="tile-content icon">
+              <img src="images/Picture128.png" alt="">
+            </div>
+            <div class="tile-footer">
+              <div class="middle">100张照片</div>
+            </div>
+          </div>
+
+          <div class="tile bg-orange">
+            <div class="tile-content icon">
+              <img src="images/IE128.png" alt="">
+            </div>
+            <div class="tile-footer">
+              <span class="left">IE 10浏览器</span>
+              <small class="right">10条信息</small>
+            </div>
+          </div>
+
+          <div class="tile tile-horizontal bg-red">
+            <div class="tile-title">
+              <h4>来自：andy12530@gmail.com来自：andy12530@gmail.com来自：andy12530@gmail.com</h4>
+            </div>
+            <div class="tile-content">
+              <p>答复：你好！事情的前因后果是这样的，前天晚上（由于我的磨蹭，必须把昨天写的“昨晚”全部替换成“前天晚上”了）和在上海背井离乡多时的闺蜜Blahblah（以下简称Blah）久别重逢了，随行的还有Blah的外籍家属M，此外Blah的其他几拨朋友也陆陆续续出席了本次会面。我想现在Blah已经对同时叫上几拨素不相识的朋友坐在一起的awkward程度了若指掌了吧，当晚频频冷场，于是我们试图用讲笑话的方式度过这些冷场的“时间点（You know what I mean, Blah!）”。</p>
+            </div>
+            <div class="tile-footer">
+              <img src="images/mail128.png">
+              <small class="notice">10封</small>
+            </div>
+          </div>
+
+          <div class="tile tile-vertical bg-green">
+            <div class="tile-title">
+              <h4>来自：andy12530@gmail.com来自：andy12530@gmail.com来自：andy12530@gmail.com</h4>
+            </div>
+            <div class="tile-content">
+              <p>答复：你好！在那晚之前，我一直觉得自己是比较擅长讲笑话的，那天才发现这只是多年的错觉。在冷场的压力下不假思索地找到一个能让大家前仰后合的新鲜笑话真是难乎其难，到今天我都还在后悔我知道的那么多笑话里，那天晚上为什么偏偏挑了那个那个那个还有那个讲了呢？M同学摇摇头说“Lame”的情景、Blah同情的眼神都还历历在目，于是我决定在好久没更新的博客上重新讲一次笑话，洗刷那天的耻辱。Blah、M，以及所有那天我讲笑话没笑的人，你们看好了─</p>
+            </div>
+            <div class="tile-footer">
+              <img src="images/mail128.png">
+              <small class="notice">10封</small>
+            </div>  
+          </div>
+
+          <div class="tile bg-white image">
+            <img src="images/girl2.jpg" alt="">
+          </div>
+
+          <div class="tile bg-blueDark">
+            <div class="tile-content icon">
+              <img src="images/YouTube128.png" alt="">
+            </div>
+            <div class="tile-footer">
+              <span class="left">YouTube</span>
+              <small class="right">热门视频</small>
+            </div>
+          </div>
+
+          <div class="tile bg-greenLight">
+            <div class="tile-content icon">
+              <img src="images/Music128.png" alt="">
+            </div>
+            <div class="tile-footer">
+              <span class="left">音乐</span>
+              <small class="right">播放列表</small>
+            </div>
+          </div>
+
+          <div class="tile bg-white image">
+            <img src="images/excel2013icon.png" alt="">
+          </div>
+
+          <div class="tile bg-white image">
+            <img src="images/girl.jpg" alt="">
+          </div>
+
+          <div class="tile bg-yellow">
+            <div class="tile-content icon">
+              <img src="images/RSS128.png" alt="">
+            </div>
+            <div class="tile-footer">
+              <span class="left">Google Read</span>
+              <small class="right">10条未读</small>
+            </div>
+          </div>
+        </div>
+
+        <h3>表单示例</h3>
+        <div class="form-group">
+          <label for="textGit">前置文本框</label>
+          <div class="group-controll add">
+            <span class="add-on">https://</span>
+            <input type="text" name="textGit" id="textGit" placeholder="Github账号">
+            <span class="add-on" id="github" data-content="Github账号有助于我们更深入的了解你！">.Github.com</span>
+          </div>
+        </div>
+
+        <div class ="form-group">
+          <label for="twitter">placeholder文本框</label>
+          <div class="group-controll add">
+            <span class="add-on">@</span>
+            <input type="text" name="text" id="twitter" data-content="Twitter 是啥？有新浪微博NB么？？？" placeholder="Twitter用户名">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="text">短文本框</label>
+          <div class="group-controll add">
+            <input type="text" name="text" id="text" class="mini" placeholder="请输入文本">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="select">短下拉Select</label>
+          <div class="group-controll">
+            <select name="" id="select" class="mini">
+              <option value="">值得</option>
+              <option value="">值得</option>
+              <option value="">值得</option>
+              <option value="">值得</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="text">文本框</label>
+          <div class="group-controll add">
+            <input type="text" name="text" id="text">
+            <span class="add-on">￥</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="search">搜索</label>
+          <div class="group-controll add">
+            <input type="text" name="text" id="search" placeholder="请输入关键字">
+            <button type="submit" class="btn btn-green">搜索<i class="icon-search right"></i></button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="dropselect">下拉选择</label>
+          <div class="group-controll add">
+            <input type="text" name="text" id="dropselect" class="long" placeholder="请输入关键字">
+
+            <div class="dropselect">
+              <li class="dropselect-ok add-on"><a href="#">选择2</a></li>
+              <ul class="unstyle dropselect-menu">
+                <li class="dropselect-item"><a href="#">选择1</a></li>
+                <li class="dropselect-item"><a href="#">选择2</a></li>
+                <li class="dropselect-item"><a href="#">选择3</a></li>
+                <li class="dropselect-item"><a href="#">选择4</a></li>
+                <li class="dropselect-item"><a href="#">选择5</a></li>
+              </ul>
+            </div>
+            <button type="submit" class="btn btn-green">
+              搜索<i class="icon-search right"></i>
+            </button>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="longtext">长文本框</label>
+          <div class="group-controll">
+            <input type="text" name="text" readonly id="longtext" class="long" value="只读文本">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="text01">禁用的文本框</label>
+          <div class="group-controll">
+            <input type="text" name="text" id="text01" disabled value="禁止输入">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="longselect">长下拉Select</label>
+          <div class="group-controll">
+            <select name="" id="longselect">
+              <option value="">值得</option>
+              <option value="">值得</option>
+              <option value="">值得</option>
+              <option value="">值得</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="pwd">密码框</label>
+          <div class="group-controll">
+            <input type="password" name="pwd" id="pwd">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="rad1">单选</label>
+          <div class="group-controll">
+            <label><input type="radio" name="rad" id="rad1">这是一</label>
+            <label><input type="radio" name="rad" id="">这是二</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ckbox01">复选</label>
+          <div class="group-controll">
+            <label><input type="checkbox" name="ckbox" id="ckbox01">选项一</label>
+            <label><input type="checkbox" name="ckbox" id="">选项二</label>
+            <label><input type="checkbox" name="ckbox" id="">选项三</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="select">长下拉Select</label>
+          <div class="group-controll">
+            <select name="" id="select" class="long">
+              <option value="">值得</option>
+              <option value="">值得</option>
+              <option value="">值得</option>
+              <option value="">值得</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="select">禁用下拉Select</label>
+          <div class="group-controll">
+            <select name="" disabled id="select">
+              <option value="">值得</option>
+              <option value="">值得</option>
+              <option value="">值得</option>
+              <option value="">值得</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="textarea">文本域</label>
+          <div class="group-controll">
+            <textarea name="" id="textarea" cols="45" rows="6"></textarea>
+          </div>
+        </div>
+
+
+        <div class="form-action">
+          <button type="submit" class="btn">提交<i class="icon-submit right"></i></button>
+          <button type="reset" class="btn btn-darken">重置<i class="icon-window-delete right"></i></button>
+        </div>
+      </div>
+      <div class="span4">
+        <h3>Tag标签</h3>
+        <p><span class="tag bg-blue white">考据癖</span><a href="#">i404</a>：螺纹就是转换线性运动和旋转运动的螺旋形结构。螺钉，还有前面说的可乐瓶口，都有螺纹。螺纹有很多种分类方法，其中根据螺旋线方向，可以分为左旋螺纹和<em>右旋螺纹</em>。我们所熟悉的旋转方式（逆时针松顺时针紧）就属于<em>右旋螺纹</em>。</p>
+
+        <p><a href="#" class="tag bg-red white">HTML5 Logo</a>：1月18日，<strong>W3C发布了HTML5的官方Logo</strong>。和Gap、MySpace、Starbucks推出新Logo时一样，免不了被关注、批判和恶搞。我赶个晚集，八一八这款Logo的设计，包括一些设计初稿，以及选用<strong>橙色</strong>的原因。</p>
+        
+        <h3>标签页</h3>
+        <p><span class="tag bg-red white">提醒：</span>标签页需要javascript支持</p>
+        <div class="tab">
+          <ul class="tab-title">
+            <li class="active"><a href="#" data-tab="tab01">标签1</a></li>
+            <li class=""><a href="#" data-tab="tab02">标签2</a></li>
+            <li class=""><a href="#" data-tab="tab03">标签3</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="active" data-pane="tab01">
+              <p>小时候，我是个不安分的娃，可是如果有几个小时都在房间里安安静静的玩，那我一定是在玩乐高。乐高绝对是上世纪最天才的玩具发明，在我眼里，什么遥控汽车，什么电子宠物，都比不上一套基础款的乐高。</p>
+            </div>
+            <div data-pane="tab02">
+              <p>虽然乐高让我着迷，但是我不太喜欢和别的小朋友一起玩，原因是他们经常做让我特纠结的搭配。感谢高科技，乐高推出的虚拟设计器“LEGO Digital Designer”，帮我真实还原了最让我抓狂的三种情况：</p>
+            </div>
+            <div data-pane="tab03">
+              <p>无奈的是，遇到上述情况，无论我多么苦口婆心地劝说，他们还是会固执地采用这种乱套的设计。那时候出于友好和礼貌，我都没有当着大人的面揭穿过他们充满缺陷的设计。只有偷偷叹息：天呐，和他们一起玩乐高简直是噩梦！</p>
+            </div>
+
+          </div>
+        </div>
+
+        <h3>提醒</h3>
+        <p><span class="tag bg-orange white">提示：</span>提醒功能需要javascript支持</p>
+        <div class="alert">
+          <a href="#" class="alert-close">x</a>
+          <div class="alert-content">
+            <h4>强迫症 V.S. 强迫型人格障碍</h4>
+            <p>有人会说，你这些症状其实没什么稀奇的，叫“强迫症（Obsessive-compulsive disorder，简称OCD）”。这应该是搞混了强迫症和强迫型人格障碍的概念。</p>
+
+          </div>
+        </div>
+
+        <div class="alert">
+          <a href="#" class="alert-close">x</a>
+          <div class="alert-content">
+            <h4>根据维基百科的定义：</h4>
+            <p>强迫症，是一种神经官能症，更具体地说，是焦虑症的一种。患有此病的患者总是被一种入侵式的思维所困扰，在生活中反复出现强迫观念及强迫行为，使患者感到不安、恐慌或担心，而进行某种重复行为有时会令患者感到这种压迫感可以得到舒缓。（有时，这还与某种焦虑有关）患者自知力完好，知道这样是没有必要的，甚至很痛苦，却无法摆脱。</p>
+
+          </div>
+        </div>
+
+        <div class="alert">
+          <div class="alert-content">
+            <p>而强迫型人格障碍（wiki）则是人格障碍的一种，过分追求秩序、完美，做事</p>
+          </div>
+        </div>
+
+        <h3>弹出提示</h3>
+        <div class="popover">
+          <span class="popover-pointer"><s></s></span>
+          <div class="popover-title">
+            <h4>什么是戈德堡机械呢？</h4>
+          </div>
+          <div class="popover-content">
+            <p>复制第一句话，在地址栏输入“Google 翻译”，回车，点击第一个链接，粘贴。得到如下翻译：</p>
+          </div>
+        </div>
+
+        <div class="popover">
+          <span class="popover-pointer top"><s></s></span>
+          <div class="popover-title">
+            <h4>戈德堡Doodle</h4>
+          </div>
+          <div class="popover-content">
+            <p>10年7月4日，Google推出了一款用戈德堡机械纪念独立日的Doodle（动态效果见此youtube视频）。描述一下大致过程：</p>
+          </div>
+        </div>
+
+          <button class="btn" id="btn" data-title="戈德堡机械举例", data-content="碰一下左下角的橄榄球，会打开装着老鹰(?)的笼子，老鹰飞出来碰掉自由女神像模型……">弹出</button>
+      </div>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
+    <div class="grid">
+      <div class="span4">
+        <h3>强调文字的例子</h3>
+        <p><a href="#">网络</a>：Mac OS X家族明年夏天将喜添新丁，胎儿名字已经取好，唤作<strong>“狮(Lion)”</strong>。据悉，“狮”字是遵照<em>Mac OS X</em>家族起名的古老传统选定的。关于<em>Mac OS X</em>家族神秘的起名传统，至今是个谜…</p>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+        <p>人们其实都多少有点“<strong>阴谋论</strong>”倾向，拒绝接受明摆着的现实，假设每件事背后都有错综复杂的“<em>阴谋</em>”，然后尝试发现这些假定存在的“不为人知的秘密”，从而获得成就感。</p>
+        <p class="indent">
+          <strong>注意：</strong> 在HTML5仍可以使用 <code>&lt;b&gt;</code> 和 <code>&lt;i&gt;</code> 标签，但是它们的用途已经发生了改变。
+          <code>&lt;b&gt;</code> 仅仅用来加粗单词或短语，没有任何语义上的含义。而 <code>&lt;i&gt;</code> 主要用在语音和技术等方面。
+            </p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+            <blockquote>
+              <p>橙色热情、迅捷而醒目，却不像红色那样令人生畏或咄咄逼人。橙色意味着兴奋，同时不乏谨慎。它牢牢抓住你的注意力，但不会让你为之尖叫。在中国色彩理论中，橙色是组织之色。在中世纪，橙色的纹章象征着力量与耐力。因此，橙色给人以性感且安全，有条不紊、功能强大、持久性强的感觉。总而言之，HTML5和橙色Logo非常般配。</p>
+              <small>Ocupop<cite title="">的解释是这样的</cite></small>
+            </blockquote>
 
-<h3>Designer Templates</h3>
+            <h3>按钮示例</h3>
+            <div>
+              <a href="#" class="btn btn-small btn-red">按钮1</a>
+              <a href="#" class="btn btn-yellow">按钮2</a>
+              <a href="#" class="btn btn-green">按钮3</a>
+              <a href="#" class="btn btn-orange">按钮4</a>
+              <a href="#" class="btn btn-large disabled">按钮5</a>
+            </div>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+            <div>
+              <button class="btn btn-small">按钮1</button>
+              <button class="btn btn-purple">按钮2</button>
+              <button class="btn btn-darken">按钮3</button>
+            </div>
+            <h3>禁用按钮</h3>
+            <button class="btn btn-small disabled">按钮4</button>
+            <a class="btn btn-small disabled">按钮4</a>
+            
+            <h3>左button右a</h3>
+            <button class="btn btn-yellow">按钮4</button>
+            <a class="btn btn-green">按钮4</a>
+            <br/>
+            <button class="btn btn-green btn-large">按钮4</button>
+            <a class="btn btn-large">按钮4</a>
 
-<h3>Rather Drive Stick?</h3>
+            <h3>Button</h3>
+            <p>与a的区别在于按钮之间，是否底部对齐</p>
+            <button class="btn btn-small">按钮1</button>
+            <button class="btn btn-yellow">按钮4</button>
+            <button class="btn btn-green btn-large">按钮4</button>
+            <h3>a</h3>
+            <a href="#" class="btn btn-small btn-red">按钮1</a>
+            <a href="#" class="btn btn-yellow">按钮2</a>
+            <a href="#" class="btn btn-green large">按钮3</a>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+            <h3>无序列表</h3>
+            <ul>
+              <li>以热爱祖国为荣，以危害祖国为耻吗？</li>
+              <li>以服务人民为荣，以背离人民为耻吗？</li>
+              <li>以崇尚科学为荣，以愚昧无知为耻吗？</li>
+              <li>以辛勤劳动为荣，以好逸恶劳为耻吗？</li>
+              <li>以团结互助为荣，以损人利己为耻吗？</li>
+              <li>以诚实守信为荣，以见利忘义为耻吗？</li>
+              <li>以遵纪守法为荣，以违法乱纪为耻吗？</li>
+              <li>以艰苦奋斗为荣，以骄奢淫逸为耻吗？</li>
+          </ul>
+      </div>
+      <div class="span4">
+        <h2>段落及链接中的文字</h2>
+        <p><a href="#">代号</a>：代号听起来怪酷的，如果你也想给自己手头的项目起个代号，可以到这里去生成一个。因为Ubuntu的Codename很有意思，所以我选了个“Unusual animals”(遗憾的是没有形容词可以选)，生成的代号是Leveret。我想象着这是个威猛的动物，结果Google告诉我，其实Leveret是小兔子的意思…</p>
 
-<h3>Authors and Contributors</h3>
+        <p><a href="">狮子会是Mac OS X的最后一版？</a>几年XXX是Mac OS X最后一版的猜测频出，从Leopard开始就有传言，后来有了Snow Leopard，再后来又要出Lion。每一次都说的像铁证如山一样。有关Lion是最后一版的证据：a. 狮子在猫科动物里体型最大，又是“丛林之王”，之后再用什么代号都会显得不给力; b. 乔布斯说过“Mac OS X要走十年的路”，2011年就是Mac OS X十年的时候.</p>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+        <small>这里是小字</small>
 
-<h3>Support or Contact</h3>
+        <h3>上标和下标</h3>
+        <p>上标使用<code>&ltsup&gt上标文字&lt/sup&gt</code>；下标使用<code>&ltsub&gt上标文字&lt/sub&gt</code></p>
+        <p>这是一段文字<sub>下标</sub>和<sup>上标</sup></p>
+        <p>数学公式：x<sub>1</sub><sup>2</sup> + y<sub>2</sub><sup>2</sup> = z<sub>0</sub><sup>2</sup></p>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
+            <h3>按钮组（复选）</h3>
+            <div class="btn-group">
+              <a href="#" class="btn">按钮组1</a>
+              <a href="#" class="btn">按钮组2</a>
+              <a href="#" class="btn">按钮组3</a>
+            </div>
+
+            <h3>按钮组（单选）</h3>
+            <div class="btn-group radio">
+              <a href="#" class="btn btn-red">按钮组1</a>
+              <a href="#" class="btn">按钮组2</a>
+              <a href="#" class="btn btn-red">按钮组3</a>
+            </div>
+
+            <h3>图标按钮（Button）</h3>
+            <button class="btn btn-small"><i class="icon-head-phone"></i>按钮</button>
+            <button class="btn btn-small">按钮<i class="icon-head-phone right"></i></button>
+            <br/>
+            <button class="btn btn-purple"><i class="icon-mail"></i>按钮</button>
+            <button class="btn btn-orange">按钮<i class="icon-search right"></i></button>
+            <br/>
+            <button class="btn btn-red btn-large">按钮<i class="icon-adobe right"></i></button>
+            <button class="btn btn-red btn-large"><i class="icon-adobe"></i>按钮</button>
+
+            <h3>无序列表（unstyle）</h3>
+            <ul class="unstyle">
+              <li>以热爱祖国为荣，以危害祖国为耻吗？</li>
+              <li>以服务人民为荣，以背离人民为耻吗？</li>
+              <li>以崇尚科学为荣，以愚昧无知为耻吗？</li>
+              <li>以辛勤劳动为荣，以好逸恶劳为耻吗？</li>
+              <li>以团结互助为荣，以损人利己为耻吗？</li>
+              <li>以诚实守信为荣，以见利忘义为耻吗？</li>
+              <li>以遵纪守法为荣，以违法乱纪为耻吗？</li>
+              <li>以艰苦奋斗为荣，以骄奢淫逸为耻吗？</li>
+          </ul>
+      </div>
+      <div class="span4">
+            <h1>h1. 中国共产党万岁</h1>
+            <h2>h2. 千年王八万年龟</h2>
+            <h3>h3. 我们在下一盘很大的棋</h3>
+            <h4>h4. 官人，你这麻将打成相公了</h4>
+            <h5>h5. 发言人：谁说中国互联网不自由了？</h5>
+            <h6>h6. 404 error　网址找不到</h6>
+            <p>这是<strong>一段</strong>文字</p>
+            <p>这是<em>一段</em>文字</p>
+            <p>这是<abbr title="中国共产党少年先锋敢死队">少先队</abbr>文字</p>
+            <address>地址：</br>
+              <strong>TVlike文化有限公司</strong>哪个省哪个市无名大道404号</br>
+              <abbr title="Phone">P:</abbr>
+               (123) 456-7890
+            </address>
+
+            <h3>表格无边框</h3>
+            <table class="bordered">
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th class="right">Time CP</th>
+                      <th class="right">Network</th>
+                      <th class="right">Traffic</th>
+                      <th class="right">Tiles update</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr><td>Bing</td><td class="right">0:00:01</td><td class="right">0,1 Mb</td><td class="right">0 Mb</td><td class="right">0,1 Mb</td></tr>
+                  <tr><td>Internet Explorer</td><td class="right">0:00:01</td><td class="right">0,1 Mb</td><td class="right">0 Mb</td><td class="right">0,1 Mb</td></tr>
+                  <tr><td>Chrome</td><td class="right">0:00:01</td><td class="right">0,1 Mb</td><td class="right">0 Mb</td><td class="right">0,1 Mb</td></tr>
+                  <tr><td>News</td><td class="right">0:00:01</td><td class="right">0,1 Mb</td><td class="right">0 Mb</td><td class="right">0,1 Mb</td></tr>
+                  <tr><td>Weather</td><td class="right">0:00:01</td><td class="right">0,1 Mb</td><td class="right">0 Mb</td><td class="right">0,1 Mb</td></tr>
+                  <tr><td>Music</td><td class="right">0:00:01</td><td class="right">0,1 Mb</td><td class="right">0 Mb</td><td class="right">0,1 Mb</td></tr>
+              </tbody>
+
+              <tfoot></tfoot>
+          </table>
+
+          <h3>表格有边框</h3>
+          <table class="border">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>电视剧</th>
+                  <th>类型</th>
+                  <th>年代</th>
+                </tr>
+              </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>爱情公寓</td>
+                <td>都市爱情喜剧</td>
+                <td>2010</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>邪恶力量</td>
+                <td>悬疑魔幻</td>
+                <td>2005</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>神探伽俐略</td>
+                <td>推理探案</td>
+                <td>2008</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>有序列表</h3>
+          <ol>
+            <li>以热爱祖国为荣，以危害祖国为耻吗？</li>
+            <li>以服务人民为荣，以背离人民为耻吗？</li>
+            <li>以崇尚科学为荣，以愚昧无知为耻吗？</li>
+            <li>以辛勤劳动为荣，以好逸恶劳为耻吗？</li>
+            <li>以团结互助为荣，以损人利己为耻吗？</li>
+            <li>以诚实守信为荣，以见利忘义为耻吗？</li>
+            <li>以遵纪守法为荣，以违法乱纪为耻吗？</li>
+            <li>以艰苦奋斗为荣，以骄奢淫逸为耻吗？</li>
+          </ol>
+      </div>
     </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Metrocss maintained by <a href="https://github.com/andy12530">andy12530</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+  <div class="footer">
+    <p>Metro CSS依照 <a href="http://zh.wikipedia.org/zh/MIT許可證">MIT</a> 开源协议，有啥意见或建议 @github.com/andy12530 或者 Twitter <a href="https://twitter.com/andy12530">@andy12530</a></p>
+    <p>示例中的文字来源于网络，版权归作者（不是我）所有。</p>
+    <p>Icons取自 <a href="http://www.syncfusion.com/downloads/metrostudio">syncfusion</a>，使用 <a href="http://necolas.github.com/normalize.css/">Normalize.css</a> 对默认的CSS进行重置(reset)。 </p>
+  </div>
+</body>
 </html>
