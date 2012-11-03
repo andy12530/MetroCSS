@@ -29,8 +29,9 @@
 		Constructor: Alert,
 		close: function(e) {
 			e && e.preventDefault();
-			var parent = e && $(e.target).parent("div") || $(".alert");
+			var parent = e && $(e.target).parent("div") || $(".alert");;
 			parent.slideUp("normal", function() {
+				$(this).trigger("closed");
 				parent.remove();
 			});
 		}
@@ -60,6 +61,7 @@
 		contents.children(".active").fadeOut("fast", function() {
 			$(this).removeClass("active");
 			contents.children("[data-pane = " + dataTab + "]").addClass("active").fadeIn(200);
+			parentTitle.parent(".tab").trigger("shown")
 		});
 	});
 
@@ -106,6 +108,7 @@
 			this.elem.next().toggle();
 		},
 		destory: function() {
+			this.elem.data("popover", "");
 			this.elem.next(".popover").remove();
 		}
 

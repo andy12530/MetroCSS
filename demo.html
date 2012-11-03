@@ -10,15 +10,17 @@
 <script type="text/javascript">
 $(function() {
 	$(".alert").bind("closed", function(e) {
-		console.log("关闭后触发这些函数");
+		alert("Alert已经完全关闭了");
 	});
 
-	$(".tab-title li").bind("shown", function() {
-		alert("已经切换完成");
+	$("#tab").bind("shown", function(e) {
+			alert("Tab完全切换完成");
 	});
+
 
 	$("#btn").bind("click", function(){
 		$(this).popover("toggle");
+
 	}) ;
 
 	$("#textGit").bind("focus", function() {
@@ -345,7 +347,7 @@ $(function() {
 				
 				<h3>标签页</h3>
 				<p><span class="tag bg-red white">提醒：</span>标签页需要javascript支持</p>
-				<div class="tab">
+				<div class="tab" id="tab">
 					<ul class="tab-title">
 						<li class="active"><a href="#" data-tab="tab01">标签1</a></li>
 						<li class=""><a href="#" data-tab="tab02">标签2</a></li>
@@ -367,7 +369,7 @@ $(function() {
 
 				<h3>提醒</h3>
 				<p><span class="tag bg-orange white">提示：</span>提醒功能需要javascript支持</p>
-				<div class="alert">
+				<div class="alert" id="alert1">
 					<a href="#" class="alert-close">x</a>
 					<div class="alert-content">
 						<h4>强迫症 V.S. 强迫型人格障碍</h4>
