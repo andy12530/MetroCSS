@@ -1,4 +1,9 @@
 ﻿$(function() {
+	//prettyPrint();
+	if (window.prettyPrint) {
+		window.prettyPrint();
+	}
+
 	// placeholder function
 	~function() {
 		function placeholder() {
@@ -22,6 +27,24 @@
 		}
 	}();
 
+	//dropselect
+	~function() {
+		var hideMenu;
+		$(".dropselect-ok, .dropselect-menu").bind("mouseenter", function() {
+			clearTimeout(hideMenu);
+			$(".dropselect-menu").slideDown(200);
+		}).bind("mouseleave", function() {
+			hideMenu = setTimeout(function() {
+				$(".dropselect-menu").slideUp(80);
+			}, 400);			
+		});
+
+		$(".dropselect-menu").on("click", "a", function(e) {
+			e.preventDefault();
+			$(".dropselect-ok a").text($(this).text());
+			$(".dropselect-menu").slideUp(80);
+		})
+	}()
 	// close alert
 	var Alert = function() {}
 
@@ -29,8 +52,9 @@
 		Constructor: Alert,
 		close: function(e) {
 			e && e.preventDefault();
-			var parent = e && $(e.target).parent("div") || $(".alert");
+			var parent = e && $(e.target).parent("div") || $(".alert");;
 			parent.slideUp("normal", function() {
+				$(this).trigger("closed");
 				parent.remove();
 			});
 		}
@@ -60,6 +84,7 @@
 		contents.children(".active").fadeOut("fast", function() {
 			$(this).removeClass("active");
 			contents.children("[data-pane = " + dataTab + "]").addClass("active").fadeIn(200);
+			parentTitle.parent(".tab").trigger("shown")
 		});
 	});
 
@@ -86,7 +111,7 @@
 			if(title) {
 				titleHmtl += '<div class="popover-title"><h4>' + title + '</h4></div>';
 			}
-			html = '<div class="popover ' + className + '" style="z-index:1000; display:none; position: absolute;"><span class="popover-pointer ' + placement + '"><s></s></span>' + titleHmtl + '<div class="popover-content"><p>' + content + '</p></div></div>';
+			html = '<div class="popover ' + className + '"><span class="popover-pointer ' + placement + '"><s></s></span>' + titleHmtl + '<div class="popover-content"><p>' + content + '</p></div></div>';
 
 			elem.after($(html).css(css));
 
@@ -95,7 +120,6 @@
 
 	Popover.prototype = {
 		Constructor: Popover,
-
 		show: function() {
 			this.elem.next().show();
 		},
@@ -106,6 +130,7 @@
 			this.elem.next().toggle();
 		},
 		destory: function() {
+			this.elem.data("popover", "");
 			this.elem.next(".popover").remove();
 		}
 

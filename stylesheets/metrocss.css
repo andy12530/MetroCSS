@@ -9,7 +9,7 @@ audio,canvas,video {
 }
 
 audio:not([controls]) {
-    display: none;
+    display: none
     height: 0;
 }
 
@@ -24,7 +24,7 @@ html {
 }
 
 html,button,input,select,textarea {
-    font-family: sans-serif;
+    font-family: "Hiragino Sans GB","微软雅黑","Arial","sans-serif";
 }
 
 body {
@@ -104,15 +104,6 @@ pre {
     white-space: pre;
     white-space: pre-wrap;
     word-wrap: break-word;
-}
-
-q {
-    quotes: none;
-}
-
-q:before,q:after {
-    content: '';
-    content: none;
 }
 
 small {
@@ -295,7 +286,7 @@ table {
 }
 
 .white {
-  color: #FFF;
+  color: #F8F8F8;
 }
 
 
@@ -356,16 +347,15 @@ table {
 }
 
 .bg-white {
-  background-color: #FFF;
+  background-color: #F8F8F8;
 }
 
 
 /*! 上面是颜色部分，包括前景色和背景颜色，背景色部分包括按钮背景色 */
 
 html, body {
-  background-color: #F8F8F8;
+  background-color: #FAFAFA;
   color: #1A1A1A;
-  font-family: "Microsoft yahei","微软雅黑","Tahoma","Verdana","Arial","sans-serif";
   font-size: 14px;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -404,9 +394,9 @@ a:focus, a:hover {
   text-decoration: underline;
 }
 p{
-  margin: 0 0 10px 0;
+  margin: 0 0 15px 0;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 1.65em;
 }
 p.indent {
   text-indent: 2em;
@@ -425,6 +415,7 @@ blockquote {
   margin: 0 3px 20px 0;
   border-left: 8px solid #d8d8d8;
   padding-left: 10px;
+  background-color: #F3F3F3;
 }
 blockquote p{
   margin: 0;
@@ -441,6 +432,7 @@ cite {
 ul, ol{
   padding: 0;
   margin: 0 0 10px 20px;
+  line-height: 30px;
 }
 ul ul, ol ul {
   margin-left: 30px;
@@ -453,6 +445,7 @@ ul ul, ol ul {
 table{
   width: 100%;
   margin-bottom: 20px;
+  line-height: 30px;
 }
 thead th{
   text-align: left;
@@ -467,7 +460,7 @@ tbody tr {
   border: 1px solid #ddd;
 }
 tbody tr:nth-child(odd) {
-  background-color: #E6E4E4;
+  background-color: #E9E9E9;
 }
 .tag {
   display: inline-block;
@@ -475,7 +468,7 @@ tbody tr:nth-child(odd) {
   margin-right: 5px;
 }
 .tag:hover {
-  color: white;
+  color: #F8F8F8;
 }
 /* 字体 & 排版 */
 code {
@@ -497,21 +490,37 @@ code {
   text-align: right;
   float: left;
   margin-right: 10px;
+  margin-top: 8px;
 }
 
 input,select {
   font-size: 14px;
   border: 2px solid #B3B3B3;
-  padding: 6px;
+  padding: 4px;
   *margin-top: -1px;
   color: #212121;
   outline: none;
   width: 180px;
 }
 
-textarea {
+textarea, .adjust {
   border: 2px solid #B3B3B3;
   outline: none;
+  width: 300px;
+}
+.form-group {
+
+}
+.adjust {
+    float: left;
+    min-height: 104px;
+    padding: 2px;
+    line-height: 18px;
+    background-color: white;
+    outline:0;
+}
+.adjust:hover {
+  cursor: text;
 }
 
 input[type="radio"],input[type="checkbox"] {
@@ -538,7 +547,7 @@ select.long {
   width: 340px;
 }
 
-input:active,input:focus,select:active,select:focus,textarea:active,textarea:focus {
+input:active,input:focus,select:active,select:focus,textarea:active,textarea:focus, .adjust:focus {
   border-color: black;
 }
 
@@ -586,6 +595,7 @@ label input {
   background: #C9C7C7;
   padding: 0 5px 2px 5px;
   vertical-align: top;
+  line-height: 30px;
 }
 
 .dropselect {
@@ -593,31 +603,30 @@ label input {
   background-color: #F8F8F8;
   position: relative;
   *display: inline;
+  line-height: 30px;
 }
  .dropselect-ok {
   display: inline-block;
   border: 2px solid #B3B3B3;
   position: relative;
-  background-color: white;
+  background-color: #F8F8F8;
   left: -2px;
-  top: -6px;
-  top: 1px\9;
+  top: -7px;
+  top: 0px\9;
   line-height: 28px;
   padding: 0;
   list-style: none;
   *padding: 1px;
-  *top: 0;
+  *top: 1px;
   *display: inline;
   *line-height: 26px;
  }
- .dropselect-ok:hover+ul, .dropselect-menu:hover {
-    display: block;
- }
+
 .dropselect-menu {
   display: none;
   position: absolute;
   left: -2px;
-  top: 26px;
+  top: 25px;
   z-index: 1000;
   top:33px\9;
   *top: 29px;
@@ -627,7 +636,7 @@ label input {
 .dropselect-item {
   border: 2px solid #b3b3b3;
   border-top: none;
-  background-color: white;
+  background-color: #F8F8F8;
   line-height: 28px;
   padding-top: 2px;
 }
@@ -642,8 +651,8 @@ label input {
 .btn {
   display: inline-block;
   padding: 5px 18px;
-  color: white;
-  border: 1px solid white;
+  color: #F8F8F8;
+  border: 1px solid #F8F8F8;
   cursor: pointer;
   line-height: 26px;
 }
@@ -656,7 +665,7 @@ label input {
 
 .btn:hover , .btn.active{
   text-decoration: none;
-  color: white;
+  color: #F8F8F8;
   background-color: #0072C6;
 }
 
@@ -732,7 +741,7 @@ label input {
 .tile {
   width: 150px;
   height: 150px;
-  color: white;
+  color: #F8F8F8;
   padding: 0 5px;
   overflow: hidden;
   position: relative;
@@ -822,11 +831,11 @@ label input {
 }
 
 .pagenav a:hover [class *= icon-] {
-  background-image: url("images/icons-white.png");
+  background-image: url("../images/icons-white.png");
 }
 
 a.active {
-  color: white;
+  color: #F8F8F8;
   background-color: #1570A6;
 }
 
@@ -907,8 +916,11 @@ a.active {
   padding: 3px 0;
   border-right: none;
   border-bottom: none;
-  position: relative;
   margin-bottom: 15px;
+  background-color: #FAFAFA;
+  z-index:1000;
+  display:none;
+  position: absolute;
 }
 
 .popover-pointer {
@@ -968,11 +980,11 @@ a.active {
   float: left;
   font-size: 24px;
   margin-right: 20px;
-  color: white;
+  color: #F8F8F8;
 }
 .navbar h1 a, .navbar h1 a:hover{
   text-decoration: none;
-  color: white;
+  color: #F8F8F8;
 }
 .nav, .nav-item {
   float: left;
@@ -985,7 +997,8 @@ a.active {
   display: block;
   padding: 0 10px;
   text-decoration: none;
-  color: white;
+  color: #F8F8F8;
+  line-height: 55px;
 }
 .nav-item a:hover {
   background-color: #eee;
@@ -1000,7 +1013,6 @@ a.active {
   position: absolute;
 }
 .nav-sub li{
-  line-height: 40px;
   border-bottom: 1px solid #ccc;
 } 
 .nav-sub li:first-child{
@@ -1008,6 +1020,7 @@ a.active {
 }
 .nav-sub a {
   background-color: #747474;
+  line-height: 40px;
 }
 
 .clearfix,.grid,.form-group,.group-controll,.tile-footer,.tab ul {
@@ -1022,10 +1035,13 @@ a.active {
   clear: both;
 }
 
+.grid {
+  margin-bottom: 10px;
+}
+
 [class *="span"] {
   margin-left: 30px;
   min-height: 30px;
-  line-height: 30px;
   float: left;
 }
 
