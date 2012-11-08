@@ -615,11 +615,10 @@ label input {
   top: 0px\9;
   line-height: 28px;
   padding: 0;
+  padding-top: 1px\9\;
   list-style: none;
-  *padding: 1px;
-  *top: 1px;
-  *display: inline;
-  *line-height: 26px;
+  width: 96px;
+  *top:1px;
  }
 
 .dropselect-menu {
@@ -629,9 +628,8 @@ label input {
   top: 25px;
   z-index: 1000;
   top:33px\9;
-  *top: 29px;
-  *line-height: 0;
-  *width: 100px;
+
+  width: 100px;
 }
 .dropselect-item {
   border: 2px solid #b3b3b3;
@@ -642,6 +640,12 @@ label input {
 }
 .dropselect-item:hover {
   background-color: #eee;
+}
+.dropselect a{
+  padding: 0;
+  margin: 0;
+  display: block;
+  text-align: center;
 }
 .dropselect a:hover {
   text-decoration: none;
@@ -928,7 +932,7 @@ a.active {
   border: 10px solid #212121;
   border-color: transparent #212121 transparent transparent;
   left: -20px;
-  top: 12px;
+  top: 6px;
 }
 .popover-pointer s{
   line-height: 0;

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Metrocss : 一个简单的前端框架" />
+    <title>Metro-CSS</title>
+    <link rel="stylesheet" href="stylesheets/metrocss.css">
+    <script type="text/javascript" src="javascripts/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="javascripts/metrocss.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="grid">
+            <div class="span8">
+                <h3>表单示例</h3>
+                    <form action="" method="post">
+                        <div class ="form-group">
+                            <label for="twitter">用户名</label>
+                            <div class="group-controll">
+                                <input type="text" name="text" id="twitter" required data-content="用户名包含字母和数据，长度至少6位" data-error="用户名不能为空" placeholder="用户名">
+                            </div>
+                        </div>
+
+                        <div class ="form-group">
+                            <label for="twitter">密码</label>
+                            <div class="group-controll">
+                                <input type="password" name="text" id="twitter" data-error="密码不能为空" required data-content="密码必须有大写字母和数字">
+                            </div>
+                        </div>
+
+                        <div class ="form-group">
+                            <label for="twitter">邮箱</label>
+                            <div class="group-controll">
+                                <input type="email" name="text" id="twitter" data-error="邮箱不能为空" required data-content="您的邮箱地址" placeholder="邮箱">
+                            </div>
+                        </div>
+                        
+                        <div class="form-action">
+                            <button type="submit" class="btn">提交<i class="icon-submit right"></i></button>
+                            <button type="reset" class="btn btn-darken">重置<i class="icon-window-delete right"></i></button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

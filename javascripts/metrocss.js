@@ -2,7 +2,13 @@
 	//prettyPrint();
 	if (window.prettyPrint) {
 		window.prettyPrint();
-	}
+	}	
+
+/*	$("input").bind("focus", function() {
+		$(this).css("borderColor", "#212121");
+	}).bind("blur", function() {
+		$(this).css("borderColor", "#B3B3B3");
+	})*/
 
 	// placeholder function
 	~function() {
@@ -26,6 +32,27 @@
 			});
 		}
 	}();
+
+
+
+/*	$("form").attr("novalidate") || $("form").attr("novalidate", "true");
+	
+	$("form").bind("submit", function(e) {
+		$("[required]").each(function() {
+			$this = $(this);
+			if ($this.val() === "" || $this.val() === $this.attr("placeholder")) {
+				$this.css("borderColor", "red");
+				e.preventDefault();
+				return false;
+			}
+		})
+	})*/
+
+	$("input[data-content]").bind("focus", function() {
+		$(this).popover("show");
+	}).bind("blur", function() {
+		$(this).popover("hide");
+	})
 
 	//dropselect
 	~function() {
@@ -90,20 +117,20 @@
 
 	// popover
 	var Popover = function(elem, option) {
-			var placement = option.placement || "left",
+			var placement = option.placement || elem.data("placement") || "left",
 				title = option.title || elem.data("title") || "",
 				content = option.content || elem.data("content"),
 				className = option.className || "",
-				offset = elem.offset()
+				offset = elem.offset();
 				if(placement == "left") {
 					css = {
-						'left': offset.left + elem.outerWidth() + 15,
+						'left': offset.left + elem.outerWidth() + 10,
 						'top': offset.top
 					}
 				} else {
 					css = {
 						'left': offset.left,
-						'top': offset.top + elem.outerHeight() + 15
+						'top': offset.top + elem.outerHeight() + 10
 
 					}
 				}
