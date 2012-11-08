@@ -121,7 +121,8 @@
 				title = option.title || elem.data("title") || "",
 				content = option.content || elem.data("content"),
 				className = option.className || "",
-				offset = elem.offset();
+				offset = elem.offset()
+				css = {};
 				if(placement == "left") {
 					css = {
 						'left': offset.left + elem.outerWidth() + 10,
@@ -131,17 +132,15 @@
 					css = {
 						'left': offset.left,
 						'top': offset.top + elem.outerHeight() + 10
-
 					}
 				}
 			var titleHmtl = ""
 			if(title) {
 				titleHmtl += '<div class="popover-title"><h4>' + title + '</h4></div>';
 			}
-			html = '<div class="popover ' + className + '"><span class="popover-pointer ' + placement + '"><s></s></span>' + titleHmtl + '<div class="popover-content"><p>' + content + '</p></div></div>';
+			html = '<div class="popover ' + className + '" style="z-index:1000; display:none; position: absolute;"><span class="popover-pointer ' + placement + '"><s></s></span>' + titleHmtl + '<div class="popover-content"><p>' + content + '</p></div></div>';
 
 			elem.after($(html).css(css));
-
 			this.elem = elem;
 		}
 

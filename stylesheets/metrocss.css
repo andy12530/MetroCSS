@@ -922,9 +922,7 @@ a.active {
   border-bottom: none;
   margin-bottom: 15px;
   background-color: #FAFAFA;
-  z-index:1000;
-  display:none;
-  position: absolute;
+  position: relative;
 }
 
 .popover-pointer {
