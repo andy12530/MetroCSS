@@ -24,7 +24,7 @@ html {
 }
 
 html,button,input,select,textarea {
-    font-family: "微软雅黑","Tahoma","Verdana","Arial","sans-serif";
+    font-family: "Hiragino Sans GB","微软雅黑","Arial","sans-serif";
 }
 
 body {
@@ -490,6 +490,7 @@ code {
   text-align: right;
   float: left;
   margin-right: 10px;
+  margin-top: 8px;
 }
 
 input,select {
@@ -614,15 +615,12 @@ label input {
   top: 0px\9;
   line-height: 28px;
   padding: 0;
+  padding-top: 1px\9\;
   list-style: none;
-  *padding: 1px;
-  *top: 1px;
-  *display: inline;
-  *line-height: 26px;
+  width: 96px;
+  *top:1px;
  }
- .dropselect-ok:hover+ul, .dropselect-menu:hover {
-    display: block;
- }
+
 .dropselect-menu {
   display: none;
   position: absolute;
@@ -630,9 +628,8 @@ label input {
   top: 25px;
   z-index: 1000;
   top:33px\9;
-  *top: 29px;
-  *line-height: 0;
-  *width: 100px;
+
+  width: 100px;
 }
 .dropselect-item {
   border: 2px solid #b3b3b3;
@@ -643,6 +640,12 @@ label input {
 }
 .dropselect-item:hover {
   background-color: #eee;
+}
+.dropselect a{
+  padding: 0;
+  margin: 0;
+  display: block;
+  text-align: center;
 }
 .dropselect a:hover {
   text-decoration: none;
@@ -917,8 +920,9 @@ a.active {
   padding: 3px 0;
   border-right: none;
   border-bottom: none;
-  position: relative;
   margin-bottom: 15px;
+  background-color: #FAFAFA;
+  position: relative;
 }
 
 .popover-pointer {
@@ -926,7 +930,7 @@ a.active {
   border: 10px solid #212121;
   border-color: transparent #212121 transparent transparent;
   left: -20px;
-  top: 12px;
+  top: 6px;
 }
 .popover-pointer s{
   line-height: 0;
@@ -961,7 +965,43 @@ a.active {
   margin-bottom: 0;
 }
 /* 弹出 */
-
+.modal {
+  width: 558px;
+  border: 1px solid #BBB;
+  z-index: 1002;
+  background-color: white;
+  display: none;
+  position: fixed;
+}
+.modal-header {
+  padding: 3px 15px;
+  border-bottom: 1px solid #CCC;
+  background-color: #D8D8D8;
+}
+.modal-close {
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  display: inline-block;
+  padding: 3px 8px;
+  line-height: 20px;
+  color: black;
+}
+.modal-content {
+  margin: 5px 15px;
+}
+.modal-drop {
+  height: 100%;
+  width: 100%;
+  background-color: #333;
+  opacity: 0.8;
+  z-index: 1001;
+  filter: alpha(opacity=80);
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+/*弹出层*/
 .navbar, .container {
   width: 1170px;
   margin: 0 auto;
@@ -1033,10 +1073,13 @@ a.active {
   clear: both;
 }
 
+.grid {
+  margin-bottom: 10px;
+}
+
 [class *="span"] {
   margin-left: 30px;
   min-height: 30px;
-
   float: left;
 }
 
