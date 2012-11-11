@@ -4,12 +4,6 @@
 		window.prettyPrint();
 	}	
 
-/*	$("input").bind("focus", function() {
-		$(this).css("borderColor", "#212121");
-	}).bind("blur", function() {
-		$(this).css("borderColor", "#B3B3B3");
-	})*/
-
 	// placeholder function
 	~function() {
 		function placeholder() {
@@ -32,21 +26,6 @@
 			});
 		}
 	}();
-
-
-
-/*	$("form").attr("novalidate") || $("form").attr("novalidate", "true");
-	
-	$("form").bind("submit", function(e) {
-		$("[required]").each(function() {
-			$this = $(this);
-			if ($this.val() === "" || $this.val() === $this.attr("placeholder")) {
-				$this.css("borderColor", "red");
-				e.preventDefault();
-				return false;
-			}
-		})
-	})*/
 
 	$("input[data-content]").bind("focus", function() {
 		$(this).popover("show");
@@ -174,6 +153,67 @@
 		});
 	}
 
+	//弹出层
+	var Modal = function(elem, option) {
+		this.elem = elem;
+
+		if (option && option.keyboard === false) {
+			return false;
+		} else {
+			$("body").bind("keyup", function(e) {
+				if (e.which === 27) {
+					$(".modal").modal("hide");
+				}		
+			})
+		}
+	};
+
+	Modal.prototype = {
+		Contructor: Modal,
+
+		show: function() {
+			var elem = this.elem,
+				left = (document.documentElement.clientWidth - elem.outerWidth())/2,
+				top = (document.documentElement.clientHeight - elem.outerHeight())/2 ;
+
+			$("body").append('<div class="modal-drop"></div>');
+			elem.css({'left': left, 'top': top}).slideDown(200, function() {
+				$(this).trigger("shown");
+			});
+		},
+
+		hide: function() {
+			$(".modal-drop").remove();
+			this.elem.slideUp(100, function() {
+				$(this).trigger("hiden");
+			});
+		}
+	}
+
+	$.fn.modal = function(option) {
+		return $(this).each(function() {
+			$this = $(this);
+			if(!$this.data("modal")) {
+				$this.data("modal", new Modal($this, option));
+			}
+			if(typeof option == 'string') {
+				$this.data("modal")[option]();
+			}
+		})
+	}
+
+	~function() {
+		$(".modal-close").bind("click", function(e) {
+			e.preventDefault();
+			$(this).parents(".modal").modal("hide");
+		})
+
+		$("[data-target]").bind("click", function() {
+			var target = $(this).data("target");
+			$(target).modal("show");
+		})
+	}()
+
 	//按钮组
 	$(".btn-group").on("click", ".btn", function(e) {
 		e.preventDefault();
@@ -186,5 +226,4 @@
 		}
 		$this.toggleClass("active");
 	})
-
 });

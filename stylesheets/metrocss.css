@@ -965,7 +965,43 @@ a.active {
   margin-bottom: 0;
 }
 /* 弹出 */
-
+.modal {
+  width: 558px;
+  border: 1px solid #BBB;
+  z-index: 1002;
+  background-color: white;
+  display: none;
+  position: fixed;
+}
+.modal-header {
+  padding: 3px 15px;
+  border-bottom: 1px solid #CCC;
+  background-color: #D8D8D8;
+}
+.modal-close {
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  display: inline-block;
+  padding: 3px 8px;
+  line-height: 20px;
+  color: black;
+}
+.modal-content {
+  margin: 5px 15px;
+}
+.modal-drop {
+  height: 100%;
+  width: 100%;
+  background-color: #333;
+  opacity: 0.8;
+  z-index: 1001;
+  filter: alpha(opacity=80);
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+/*弹出层*/
 .navbar, .container {
   width: 1170px;
   margin: 0 auto;

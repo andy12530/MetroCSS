@@ -115,10 +115,16 @@ $(function() {
 	        		<abbr title="Phone">P:</abbr> (123) 456-7890
       			</address></p>
       			<p>省略使用 abbr标签： <abbr title="中国共产党少年先锋敢死队">少先队</abbr></p>
+      			
       			<h3>上标和下标</h3>
       			<p>上标使用<code>&lt;sup&gt;上标文字&lt;/sup&gt;</code>；下标使用<code>&lt;sub&gt;上标文字&lt;/sub&gt;</code></p>
       			<p>这是一段文字<sub>下标</sub>和<sup>上标</sup></p>
       			<p>数学公式：x<sub>1</sub><sup>2</sup> + y<sub>2</sub><sup>2</sup> = z<sub>0</sub><sup>2</sup></p>
+
+      			<h3>Tag标签</h3>
+				<p><span class="tag bg-blue white">考据癖</span><a href="#">i404</a>：螺纹就是转换线性运动和旋转运动的螺旋形结构。螺钉，还有前面说的可乐瓶口，都有螺纹。螺纹有很多种分类方法，其中根据螺旋线方向，可以分为左旋螺纹和<em>右旋螺纹</em>。我们所熟悉的旋转方式（逆时针松顺时针紧）就属于<em>右旋螺纹</em>。</p>
+
+				<p><a href="#" class="tag bg-red white">HTML5 Logo</a>：1月18日，<strong>W3C发布了HTML5的官方Logo</strong>。和Gap、MySpace、Starbucks推出新Logo时一样，免不了被关注、批判和恶搞。我赶个晚集，八一八这款Logo的设计，包括一些设计初稿，以及选用<strong>橙色</strong>的原因。</p>
 			</div>
 		</div>
 
@@ -618,6 +624,7 @@ $(function() {
 				</div>
 
 				<h3>弹出提示</h3>
+				<p><span class="tag bg-green white">提醒：</span>弹出提示需要javascript支持</p>
 				<div class="popover">
 					<span class="popover-pointer"><s></s></span>
 					<div class="popover-title">
@@ -640,11 +647,19 @@ $(function() {
 				<button class="btn" id="btn" data-title="戈德堡机械举例", data-content="碰一下左下角的橄榄球，会打开装着老鹰(?)的笼子，老鹰飞出来碰掉自由女神像模型……">点击弹出</button>
 
 
-				<h3>Tag标签</h3>
-				<p><span class="tag bg-blue white">考据癖</span><a href="#">i404</a>：螺纹就是转换线性运动和旋转运动的螺旋形结构。螺钉，还有前面说的可乐瓶口，都有螺纹。螺纹有很多种分类方法，其中根据螺旋线方向，可以分为左旋螺纹和<em>右旋螺纹</em>。我们所熟悉的旋转方式（逆时针松顺时针紧）就属于<em>右旋螺纹</em>。</p>
+				<h3>对话框弹出</h3>
+				<p><span class="tag bg-red white">提醒：</span>对话框弹出需要javascript支持</p>
+                <button data-target="#modals" class="btn">弹出提示<i class="icon-submit right"></i></button>
 
-				<p><a href="#" class="tag bg-red white">HTML5 Logo</a>：1月18日，<strong>W3C发布了HTML5的官方Logo</strong>。和Gap、MySpace、Starbucks推出新Logo时一样，免不了被关注、批判和恶搞。我赶个晚集，八一八这款Logo的设计，包括一些设计初稿，以及选用<strong>橙色</strong>的原因。</p>
-
+                <div class="modal" id="modals">
+                    <div class="modal-header">
+                        <a href="#" class="modal-close">x</a>
+                        <h4>对话框标题</h4>
+                    </div>
+                    <div class="modal-content">
+                        <p>强迫症，是一种神经官能症，更具体地说，是焦虑症的一种。患有此病的患者总是被一种入侵式的思维所困扰，在生活中反复出现强迫观念及强迫行为，使患者感到不安、恐慌或担心，而进行某种重复行为有时会令患者感到这种压迫感可以得到舒缓。（有时，这还与某种焦虑有关）患者自知力完好，知道这样是没有必要的，甚至很痛苦，却无法摆脱。</p>
+                    </div>
+                </div>
 			</div>
 		</div>
 
