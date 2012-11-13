@@ -13,19 +13,34 @@
 <script type="text/javascript">
 $(function() {
 	$(".alert").bind("closed", function(e) {
-		alert("Alert已经完全关闭了");
+		console.log("Alert已经完全关闭了，回调函数closed触发");
 	});
 
 	$("#tab").bind("shown", function(e) {
-			alert("Tab完全切换完成");
+			console.log("Tab完全切换完成，回调函数shown触发");
 	});
 
 
 	$("#btn").bind("click", function(){
 		$(this).popover("toggle");
+	})
 
-	}) ;
+	$("#modals").bind("shown", function(e) {
+		console.log("对话框已经显示完成，回调函数shown触发");
+	})
 
+	$("#modals").bind("hiden", function(e) {
+		console.log("对话框已经完全隐藏，回调函数hiden触发");
+	})
+
+	$("#submit").bind("click", function(e) {
+		e.preventDefault();
+		$("#validate-pwd").modal("show")
+	})
+
+	$("#validate-pwd").bind("shown", function() {
+		$("#validate-pwd input").val("").focus();
+	})
 })
 </script>
 <title>测试页面</title>
@@ -56,7 +71,7 @@ $(function() {
 				<h3>兰亭集序</h3>
 				<p><small>作者：王羲之（321—379），字逸少，东晋琅玡临沂（今山东临沂县人）</small></p>
 				<h4>原文片段</h4>
-				<p>永和九年<sup><a href="#">[2]</a></sup>，岁在癸丑<sup><a href="#">[3]</a></sup>。暮春之初，会于会稽山阴之兰亭<sup><a href="#">[4]</a></sup>，修禊事也<sup><a href="#">[5]</a></sup>。群贤毕至，少长咸集。此地有崇山峻岭，茂林修竹<sup><a href="#">[6]</a></sup>。又有清流激湍<sup><a href="#">[7]</a></sup>，映带左右，引以为流觞曲水<sup><a href="#">[8]</a></sup>。列坐其次<sup><a href="#">[9]</a></sup>，虽无丝竹管弦之盛<sup><a href="#">[10]</a></sup>，一觞一咏<sup><a href="#">[11]</a></sup>］，亦足以畅叙幽情<sup><a href="#">[12]</a></sup>。是日也，天朗气清，惠风和畅<sup><a href="#">[13]</a></sup>。仰观宇宙之大，俯察品类之盛<sup><a href="#">[14]</a></sup>，所以游目骋怀<sup><a href="#">[15]</a></sup>，足以极视听之娱，信可乐也。</p>
+				<p>永和九年<sup><a href="/">[2]</a></sup>，岁在癸丑<sup><a href="#">[3]</a></sup>。暮春之初，会于会稽山阴之兰亭<sup><a href="#">[4]</a></sup>，修禊事也<sup><a href="#">[5]</a></sup>。群贤毕至，少长咸集。此地有崇山峻岭，茂林修竹<sup><a href="#">[6]</a></sup>。又有清流激湍<sup><a href="#">[7]</a></sup>，映带左右，引以为流觞曲水<sup><a href="#">[8]</a></sup>。列坐其次<sup><a href="#">[9]</a></sup>，虽无丝竹管弦之盛<sup><a href="#">[10]</a></sup>，一觞一咏<sup><a href="#">[11]</a></sup>］，亦足以畅叙幽情<sup><a href="#">[12]</a></sup>。是日也，天朗气清，惠风和畅<sup><a href="#">[13]</a></sup>。仰观宇宙之大，俯察品类之盛<sup><a href="#">[14]</a></sup>，所以游目骋怀<sup><a href="#">[15]</a></sup>，足以极视听之娱，信可乐也。</p>
 				<h4>注释</h4>
 				<p><small>
 					[1] 本文记叙了兰亭雅集的盛况，表现了自己对宇宙人生的看法和态度，代表着东晋一部分士大夫文人的生活情趣。同时，又可以看出他们的思想修养、精神状态和文学造诣。</br>
@@ -563,16 +578,32 @@ $(function() {
 					<div class="form-group">
 						<label for="">高度自适应文本域</label>
 						<div class="group-controll">
-							<div class="adjust" contenteditable="true" id="adjust" style="float:left">
+							<div class="adjust" contenteditable="true" id="adjust">
 							</div>
 						</div>
 					</div>
 					
 					<div class="form-action">
-						<button type="submit" class="btn">提交<i class="icon-submit right"></i></button>
+						<button type="submit" id="submit" class="btn">提交<i class="icon-submit right"></i></button>
 						<button type="reset" class="btn btn-darken">重置<i class="icon-window-delete right"></i></button>
 					</div>
 				</form>
+
+				<div class="modal" id="validate-pwd">
+                    <div class="modal-header">
+                        <a href="#" class="modal-close">x</a>
+                        <h4>保存账号更改</h4>
+                    </div>
+                    <div class="modal-content">
+                    	<form action="post">
+                    		<p>请重新输入你的账号密码以保存更改。</p>
+                    		<input type="password" class="long" placeholder="请输入账号密码">
+							<div style="margin: 10px 0; text-align: center;">
+								<button type="submit" class="btn">保存更改<i class="icon-submit right"></i></button>
+							</div>
+                    	</form>
+                    </div>
+                </div>
 			</div>
 			<div class="span4">			
 				<h3>标签页</h3>
@@ -654,10 +685,37 @@ $(function() {
                 <div class="modal" id="modals">
                     <div class="modal-header">
                         <a href="#" class="modal-close">x</a>
-                        <h4>对话框标题</h4>
+                        <h4>标题（按ESC键可以关闭）</h4>
                     </div>
                     <div class="modal-content">
                         <p>强迫症，是一种神经官能症，更具体地说，是焦虑症的一种。患有此病的患者总是被一种入侵式的思维所困扰，在生活中反复出现强迫观念及强迫行为，使患者感到不安、恐慌或担心，而进行某种重复行为有时会令患者感到这种压迫感可以得到舒缓。（有时，这还与某种焦虑有关）患者自知力完好，知道这样是没有必要的，甚至很痛苦，却无法摆脱。</p>
+                        <p>永和九年<sup><a href="#">[2]</a></sup>，岁在癸丑<sup><a href="#">[3]</a></sup>。暮春之初，会于会稽山阴之兰亭<sup><a href="#">[4]</a></sup>，修禊事也<sup><a href="#">[5]</a></sup>。群贤毕至，少长咸集。此地有崇山峻岭，茂林修竹<sup><a href="#">[6]</a></sup>。又有清流激湍<sup><a href="#">[7]</a></sup>，映带左右，引以为流觞曲水<sup><a href="#">[8]</a></sup>。列坐其次<sup><a href="#">[9]</a></sup>，虽无丝竹管弦之盛<sup><a href="#">[10]</a></sup>，一觞一咏<sup><a href="#">[11]</a></sup>］，亦足以畅叙幽情<sup><a href="#">[12]</a></sup>。是日也，天朗气清，惠风和畅<sup><a href="#">[13]</a></sup>。仰观宇宙之大，俯察品类之盛<sup><a href="#">[14]</a></sup>，所以游目骋怀<sup><a href="#">[15]</a></sup>，足以极视听之娱，信可乐也。</p>
+
+                        <blockquote>
+							羲之雅好服食养性，不乐在<del>京城</del><ins>京师</ins>，初渡浙江，便有终焉之志。会稽有名山水，名士多居之，谢安未仕时亦居焉。孙绰、李充、许询、支遁等皆以文义冠世，并筑东土，与羲之同好。
+							<blockquote>尝与同志宴集于会稽山阴之兰亭，羲之自为之序以申其志，……或以潘岳《金谷诗序》方其文、羲之比于石崇，闻而甚喜。
+							</blockquote>
+							<small>房乔等《晋书"王羲之传》</small>
+						</blockquote>
+						<p><small>
+							[1] 本文记叙了兰亭雅集的盛况，表现了自己对宇宙人生的看法和态度，代表着东晋一部分士大夫文人的生活情趣。同时，又可以看出他们的思想修养、精神状态和文学造诣。<br>
+							[2] 永和：东晋穆帝年号(公元345—356)，永和九年，即公元353年。<br>
+							[3] 癸丑：古代以干支纪年，永和九年在古纪年中是癸丑年。<br>
+							[4] 会稽(kuài jī)：古郡名，在今浙江绍兴。山阴：县名，治所在今绍兴。兰亭：亭名，在今绍兴西南兰渚山麓之兰溪江畔。<br>
+							[5] 修禊(xì)：古代民俗于农历三月上旬的巳日( 三国魏以后始固定为三月初三)到水边嬉戏，以祓除不祥，称为修禊。<br>
+							[6] 修竹：长长的竹子。<br>
+							[7] 激湍(tuān)：急流。湍，急而旋的流水。<br>
+							[8] 流觞曲水：在环曲的水流旁宴集，在水的上流放置酒杯，任其顺流而下，杯停在谁的面前，谁就取饮，称为“流觞曲水”。<br>
+							[9] 列坐：以次相坐。<br>
+							[10] 丝竹管弦：泛指音乐。<br>
+							[11] 觞(shāng)：本指盛满酒的杯，此指以酒饮人或自饮。<br>
+							[12] 幽情：深远或高雅的情思。<br>
+							[13] 惠风：和风。<br>
+							[14] 品类：指万物。<br>
+							[15] 游目骋怀：纵目观望，舒展胸怀。
+						</small></p>
+
+
                     </div>
                 </div>
 			</div>

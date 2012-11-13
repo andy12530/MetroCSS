@@ -472,10 +472,11 @@ tbody tr:nth-child(odd) {
 }
 /* 字体 & 排版 */
 code {
-  padding: 0 4px;
+  padding: 3px;
   color: #080;
   background-color: #F7F7F9;
   border: 1px solid #E1E1E8;
+  margin: 0 3px;
 }
 
 
@@ -891,19 +892,20 @@ a.active {
   margin-bottom: 15px;
 }
 
-.alert-close {
+.alert-close, .modal-close {
   position: absolute;
   right: 5px;
   top: 3px;
   display: inline-block;
   padding: 3px 8px;
   line-height: 20px;
-  color: #ccc;
+  color: #B4B4B4;
+  font-size: 18px;
 }
 
-.alert-close:hover {
+.alert-close:hover, .modal-close:hover {
   text-decoration: none;
-  color: #AAA;
+  color: #E04343;
 }
 
 .alert-content p {
@@ -966,7 +968,7 @@ a.active {
 }
 /* 弹出 */
 .modal {
-  width: 558px;
+  max-width: 558px;
   border: 1px solid #BBB;
   z-index: 1002;
   background-color: white;
@@ -976,19 +978,12 @@ a.active {
 .modal-header {
   padding: 3px 15px;
   border-bottom: 1px solid #CCC;
-  background-color: #D8D8D8;
-}
-.modal-close {
-  position: absolute;
-  right: 5px;
-  top: 3px;
-  display: inline-block;
-  padding: 3px 8px;
-  line-height: 20px;
-  color: black;
+  background-color: #F4F4EC;
 }
 .modal-content {
   margin: 5px 15px;
+  max-height: 500px;
+  overflow-y: auto; 
 }
 .modal-drop {
   height: 100%;
@@ -1184,6 +1179,7 @@ a.active {
   margin: 10px auto 0 auto;
   padding-top:10px;
   border-top: 1px solid #ccc;
+  text-shadow: 0 1px 0 #F7F7F7;
 }
 .footer p {
   margin-bottom: 0;

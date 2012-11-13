@@ -178,6 +178,9 @@
 
 			$("body").append('<div class="modal-drop"></div>');
 			elem.css({'left': left, 'top': top}).slideDown(200, function() {
+				window.onmousewheel=function(){
+					return false
+				}; 
 				$(this).trigger("shown");
 			});
 		},
@@ -185,6 +188,9 @@
 		hide: function() {
 			$(".modal-drop").remove();
 			this.elem.slideUp(100, function() {
+				window.onmousewheel=function(){
+					return true;
+				}; 
 				$(this).trigger("hiden");
 			});
 		}
@@ -211,6 +217,10 @@
 		$("[data-target]").bind("click", function() {
 			var target = $(this).data("target");
 			$(target).modal("show");
+		})
+
+		$(".modal-drop").bind("click", function() {
+			console.log("a");
 		})
 	}()
 
