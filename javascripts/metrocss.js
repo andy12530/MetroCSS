@@ -178,9 +178,6 @@
 
 			$("body").append('<div class="modal-drop"></div>');
 			elem.css({'left': left, 'top': top}).slideDown(200, function() {
-				window.onmousewheel=function(){
-					return false
-				}; 
 				$(this).trigger("shown");
 			});
 		},
@@ -188,9 +185,6 @@
 		hide: function() {
 			$(".modal-drop").remove();
 			this.elem.slideUp(100, function() {
-				window.onmousewheel=function(){
-					return true;
-				}; 
 				$(this).trigger("hiden");
 			});
 		}

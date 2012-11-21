@@ -457,7 +457,7 @@ tbody tr {
   border-top: none;
 }
 .border th, .border td {
-  border: 1px solid #ddd;
+  border: 1px solid #9E9E9E;
 }
 tbody tr:nth-child(odd) {
   background-color: #E9E9E9;
@@ -466,6 +466,7 @@ tbody tr:nth-child(odd) {
   display: inline-block;
   padding: 0 5px;
   margin-right: 5px;
+  border-radius: 3px;
 }
 .tag:hover {
   color: #F8F8F8;
@@ -502,12 +503,14 @@ input,select {
   color: #212121;
   outline: none;
   width: 180px;
+  border-radius: 3px;
 }
 
 textarea, .adjust {
   border: 2px solid #B3B3B3;
   outline: none;
   width: 300px;
+  border-radius: 3px;
 }
 .form-group {
 
@@ -590,6 +593,9 @@ label input {
   border: 0;
   line-height: 22px;
 }
+.add input {
+  height: 20px;
+}
 .add-on {
   font-size: 14px;
   display: inline-block;
@@ -616,10 +622,11 @@ label input {
   top: 0px\9;
   line-height: 28px;
   padding: 0;
-  padding-top: 1px\9\;
+  padding-top: 1px\9\0;
   list-style: none;
   width: 96px;
   *top:1px;
+  border-radius: 0 3px 3px 0;
  }
 
 .dropselect-menu {
@@ -660,6 +667,7 @@ label input {
   border: 1px solid #F8F8F8;
   cursor: pointer;
   line-height: 26px;
+  border-radius: 5px;
 }
 
 * +html button.btn {
@@ -732,11 +740,17 @@ label input {
   margin-left: -1px;
   border: none;
   border-left: 1px solid #A1BAD6;
+  border-radius: 0;
 }
 
 .btn-group .btn:first-child {
   margin-left: 0;
   border-left: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.btn-group .btn:last-child {
+  border-radius: 0 5px 5px 0;
 }
 
 .btn-group .btn.active {
@@ -890,6 +904,7 @@ a.active {
   padding: 8px 15px 3px 10px;
   position: relative;
   margin-bottom: 15px;
+  border-radius: 5px;
 }
 
 .alert-close, .modal-close {
@@ -969,21 +984,26 @@ a.active {
 /* 弹出 */
 .modal {
   max-width: 558px;
-  border: 1px solid #BBB;
   z-index: 1002;
   background-color: white;
   display: none;
   position: fixed;
+  border-radius: 5px;
 }
 .modal-header {
   padding: 3px 15px;
-  border-bottom: 1px solid #CCC;
-  background-color: #F4F4EC;
+  background-color: #6992AF;
+  color: white;
+  border-radius: 5px 5px 0 0;
+}
+.modal-close {
+  color: #E6E3E3;
 }
 .modal-content {
-  margin: 5px 15px;
+  margin: 5px 5px;
+  padding: 0 10px;
   max-height: 500px;
-  overflow-y: auto; 
+  overflow-y: auto;
 }
 .modal-drop {
   height: 100%;

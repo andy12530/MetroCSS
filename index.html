@@ -136,7 +136,7 @@ $(function() {
       			<p>这是一段文字<sub>下标</sub>和<sup>上标</sup></p>
       			<p>数学公式：x<sub>1</sub><sup>2</sup> + y<sub>2</sub><sup>2</sup> = z<sub>0</sub><sup>2</sup></p>
 
-      			<h3>Tag标签</h3>
+      			<h3 id="tag">Tag标签</h3>
 				<p><span class="tag bg-blue white">考据癖</span><a href="#">i404</a>：螺纹就是转换线性运动和旋转运动的螺旋形结构。螺钉，还有前面说的可乐瓶口，都有螺纹。螺纹有很多种分类方法，其中根据螺旋线方向，可以分为左旋螺纹和<em>右旋螺纹</em>。我们所熟悉的旋转方式（逆时针松顺时针紧）就属于<em>右旋螺纹</em>。</p>
 
 				<p><a href="#" class="tag bg-red white">HTML5 Logo</a>：1月18日，<strong>W3C发布了HTML5的官方Logo</strong>。和Gap、MySpace、Starbucks推出新Logo时一样，免不了被关注、批判和恶搞。我赶个晚集，八一八这款Logo的设计，包括一些设计初稿，以及选用<strong>橙色</strong>的原因。</p>
@@ -420,6 +420,8 @@ $(function() {
 
 				<h3>表单示例</h3>
 				<form action="" method="post">
+					<fieldset>
+					<legend>表单</legend>
 					<div class="form-group">
 						<label for="textGit">前置文本框</label>
 						<div class="group-controll add">
@@ -587,6 +589,7 @@ $(function() {
 						<button type="submit" id="submit" class="btn">提交<i class="icon-submit right"></i></button>
 						<button type="reset" class="btn btn-darken">重置<i class="icon-window-delete right"></i></button>
 					</div>
+				</fieldset>
 				</form>
 
 				<div class="modal" id="validate-pwd">
