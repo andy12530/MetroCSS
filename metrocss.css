@@ -24,7 +24,7 @@ html {
 }
 
 html,button,input,select,textarea {
-    font-family: "微软雅黑","Tahoma","Verdana","Arial","sans-serif";
+    font-family: "Hiragino Sans GB","微软雅黑","Arial","sans-serif";
 }
 
 body {
@@ -457,7 +457,7 @@ tbody tr {
   border-top: none;
 }
 .border th, .border td {
-  border: 1px solid #ddd;
+  border: 1px solid #9E9E9E;
 }
 tbody tr:nth-child(odd) {
   background-color: #E9E9E9;
@@ -466,16 +466,18 @@ tbody tr:nth-child(odd) {
   display: inline-block;
   padding: 0 5px;
   margin-right: 5px;
+  border-radius: 3px;
 }
 .tag:hover {
   color: #F8F8F8;
 }
 /* 字体 & 排版 */
 code {
-  padding: 0 4px;
+  padding: 3px;
   color: #080;
   background-color: #F7F7F9;
   border: 1px solid #E1E1E8;
+  margin: 0 3px;
 }
 
 
@@ -490,6 +492,7 @@ code {
   text-align: right;
   float: left;
   margin-right: 10px;
+  margin-top: 8px;
 }
 
 input,select {
@@ -500,12 +503,14 @@ input,select {
   color: #212121;
   outline: none;
   width: 180px;
+  border-radius: 3px;
 }
 
 textarea, .adjust {
   border: 2px solid #B3B3B3;
   outline: none;
   width: 300px;
+  border-radius: 3px;
 }
 .form-group {
 
@@ -588,6 +593,9 @@ label input {
   border: 0;
   line-height: 22px;
 }
+.add input {
+  height: 20px;
+}
 .add-on {
   font-size: 14px;
   display: inline-block;
@@ -614,15 +622,13 @@ label input {
   top: 0px\9;
   line-height: 28px;
   padding: 0;
+  padding-top: 1px\9\0;
   list-style: none;
-  *padding: 1px;
-  *top: 1px;
-  *display: inline;
-  *line-height: 26px;
+  width: 96px;
+  *top:1px;
+  border-radius: 0 3px 3px 0;
  }
- .dropselect-ok:hover+ul, .dropselect-menu:hover {
-    display: block;
- }
+
 .dropselect-menu {
   display: none;
   position: absolute;
@@ -630,9 +636,8 @@ label input {
   top: 25px;
   z-index: 1000;
   top:33px\9;
-  *top: 29px;
-  *line-height: 0;
-  *width: 100px;
+
+  width: 100px;
 }
 .dropselect-item {
   border: 2px solid #b3b3b3;
@@ -643,6 +648,12 @@ label input {
 }
 .dropselect-item:hover {
   background-color: #eee;
+}
+.dropselect a{
+  padding: 0;
+  margin: 0;
+  display: block;
+  text-align: center;
 }
 .dropselect a:hover {
   text-decoration: none;
@@ -656,6 +667,7 @@ label input {
   border: 1px solid #F8F8F8;
   cursor: pointer;
   line-height: 26px;
+  border-radius: 5px;
 }
 
 * +html button.btn {
@@ -728,11 +740,17 @@ label input {
   margin-left: -1px;
   border: none;
   border-left: 1px solid #A1BAD6;
+  border-radius: 0;
 }
 
 .btn-group .btn:first-child {
   margin-left: 0;
   border-left: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.btn-group .btn:last-child {
+  border-radius: 0 5px 5px 0;
 }
 
 .btn-group .btn.active {
@@ -886,21 +904,23 @@ a.active {
   padding: 8px 15px 3px 10px;
   position: relative;
   margin-bottom: 15px;
+  border-radius: 5px;
 }
 
-.alert-close {
+.alert-close, .modal-close {
   position: absolute;
   right: 5px;
   top: 3px;
   display: inline-block;
   padding: 3px 8px;
   line-height: 20px;
-  color: #ccc;
+  color: #B4B4B4;
+  font-size: 18px;
 }
 
-.alert-close:hover {
+.alert-close:hover, .modal-close:hover {
   text-decoration: none;
-  color: #AAA;
+  color: #E04343;
 }
 
 .alert-content p {
@@ -917,8 +937,9 @@ a.active {
   padding: 3px 0;
   border-right: none;
   border-bottom: none;
-  position: relative;
   margin-bottom: 15px;
+  background-color: #FAFAFA;
+  position: relative;
 }
 
 .popover-pointer {
@@ -926,7 +947,7 @@ a.active {
   border: 10px solid #212121;
   border-color: transparent #212121 transparent transparent;
   left: -20px;
-  top: 12px;
+  top: 6px;
 }
 .popover-pointer s{
   line-height: 0;
@@ -961,7 +982,41 @@ a.active {
   margin-bottom: 0;
 }
 /* 弹出 */
-
+.modal {
+  max-width: 558px;
+  z-index: 1002;
+  background-color: white;
+  display: none;
+  position: fixed;
+  border-radius: 5px;
+}
+.modal-header {
+  padding: 3px 15px;
+  background-color: #6992AF;
+  color: white;
+  border-radius: 5px 5px 0 0;
+}
+.modal-close {
+  color: #E6E3E3;
+}
+.modal-content {
+  margin: 5px 5px;
+  padding: 0 10px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+.modal-drop {
+  height: 100%;
+  width: 100%;
+  background-color: #333;
+  opacity: 0.8;
+  z-index: 1001;
+  filter: alpha(opacity=80);
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+/*弹出层*/
 .navbar, .container {
   width: 1170px;
   margin: 0 auto;
@@ -1033,10 +1088,13 @@ a.active {
   clear: both;
 }
 
+.grid {
+  margin-bottom: 10px;
+}
+
 [class *="span"] {
   margin-left: 30px;
   min-height: 30px;
-
   float: left;
 }
 
@@ -1141,6 +1199,7 @@ a.active {
   margin: 10px auto 0 auto;
   padding-top:10px;
   border-top: 1px solid #ccc;
+  text-shadow: 0 1px 0 #F7F7F7;
 }
 .footer p {
   margin-bottom: 0;
