@@ -212,10 +212,13 @@
 			var target = $(this).data("target");
 			$(target).modal("show");
 		})
+<<<<<<< HEAD
 
 		$(".modal-drop").bind("click", function() {
 			console.log("a");
 		})
+=======
+>>>>>>> 64f263ac7d27474b180c430e13922e5b227ab39c
 	}()
 
 	//按钮组
